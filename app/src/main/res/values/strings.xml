@@ -27,6 +27,7 @@
     <string name="five" translatable="false">5</string>
     <string name="eight" translatable="false">8</string>
     <string name="ten" translatable="false">10</string>
+    <string name="all">All</string>
 
     <string name="ques1">Canada is the largest country in the world.</string>
     <string name="ques2">The sun is a star.</string>

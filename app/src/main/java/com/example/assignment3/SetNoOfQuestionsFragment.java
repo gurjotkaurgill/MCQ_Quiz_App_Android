@@ -14,7 +14,7 @@ import androidx.fragment.app.DialogFragment;
 public class SetNoOfQuestionsFragment extends DialogFragment {
 
     interface radioButtonClickListener {
-        void radioButtonClicked(int x);
+        void noOfQuestionsToBeDisplayedUpdated(int x);
     }
     radioButtonClickListener listener;
 
@@ -33,16 +33,20 @@ public class SetNoOfQuestionsFragment extends DialogFragment {
             public void onClick(View v) {
                 int checked = radioGroup.getCheckedRadioButtonId();
                 if(checked == R.id.rb5){
-                    listener.radioButtonClicked(5);
+                    listener.noOfQuestionsToBeDisplayedUpdated(5);
                 }
                 else if(checked == R.id.rb8){
-                    listener.radioButtonClicked(8);
+                    listener.noOfQuestionsToBeDisplayedUpdated(8);
                 }
                 else if(checked == R.id.rb10){
-                    listener.radioButtonClicked(10);
+                    listener.noOfQuestionsToBeDisplayedUpdated(10);
+                }
+                else if(checked == R.id.rbAll){
+                    listener.noOfQuestionsToBeDisplayedUpdated(-1);
                 }
                 else {
                     //nothing selected - do nothing
+                    dismiss();
                 }
                 dismiss();
             }

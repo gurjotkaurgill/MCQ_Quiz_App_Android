@@ -2,7 +2,6 @@ package com.example.assignment3;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,18 +20,8 @@ public class ResetAlert extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         return new AlertDialog.Builder(requireContext())
                 .setMessage(R.string.sureDelete)
-                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        listener.deleteResults();
-                    }
-                })
-                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dismiss();
-                    }
-                })
+                .setPositiveButton(getString(R.string.ok), (dialog, which) -> listener.deleteResults())
+                .setNegativeButton(getString(R.string.cancel), (dialog, which) -> dismiss())
                 .create();
     }
 }

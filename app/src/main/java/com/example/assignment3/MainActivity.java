@@ -3,7 +3,6 @@ package com.example.assignment3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,13 +12,12 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         SetNoOfQuestionsFragment.radioButtonClickListener, ResetAlert.DeleteResultsInterface,
         DisplayResultFragment.SaveResult, AddQuestionFragment.AddNewQuestion {
 
-    ArrayList<Question> shuffledQuestionsArrayList, userAddedQuestionsList;
+    ArrayList<Question> shuffledQuestionsArrayList;
     QuestionBank questionBank;
     FrameLayout frameLayout;
     Button trueButton, falseButton;
@@ -45,29 +43,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         fm = ((AppLevelVars)getApplication()).fileManager;
 
-        if(getSupportFragmentManager().findFragmentById(R.id.frameLayout) != null){
-            shuffledQuestionsArrayList = ((AppLevelVars)getApplication()).getQuestions();
-            currentQuestionIndex = ((AppLevelVars) getApplication()).getCurrentQuestionIndex();
-            noOfCorrectAnswers = ((AppLevelVars) getApplication()).getNoOfCorrectAnswers();
-            noOfQuestionsToDisplay = ((AppLevelVars) getApplication()).getNoOfQuestions();
-            percentProgress = ((AppLevelVars) getApplication()).getPercentProgress();
-            userAddedQuestionsList = ((AppLevelVars)getApplication()).getUserAddedQuestions();
-            Toast.makeText(this, "size: " + shuffledQuestionsArrayList.size(), Toast.LENGTH_SHORT).show();
-        }
-        else {
-            shuffledQuestionsArrayList = questionBank.getQuestions(MainActivity.this);
-            userAddedQuestionsList = new ArrayList<>(0);
-            Collections.shuffle(shuffledQuestionsArrayList);
-            currentQuestionIndex = 0;
-            noOfCorrectAnswers = 0;
-            percentProgress = 0;
-            noOfQuestionsToDisplay = shuffledQuestionsArrayList.size();
-            ((AppLevelVars)getApplication()).setQuestions(shuffledQuestionsArrayList);
-            ((AppLevelVars) getApplication()).setCurrentQuestionIndex(currentQuestionIndex);
-            ((AppLevelVars) getApplication()).setNoOfCorrectAnswers(noOfCorrectAnswers);
-            ((AppLevelVars) getApplication()).setNoOfQuestions(noOfQuestionsToDisplay);
-            ((AppLevelVars) getApplication()).setPercentProgress(percentProgress);
-            ((AppLevelVars)getApplication()).setUserAddedQuestions(userAddedQuestionsList);
+        shuffledQuestionsArrayList = questionBank.getQuestions(MainActivity.this);
+        currentQuestionIndex = 0;
+        noOfCorrectAnswers = 0;
+        percentProgress = 0;
+        noOfQuestionsToDisplay = shuffledQuestionsArrayList.size();
+
+        if(savedInstanceState != null) {
+            currentQuestionIndex = savedInstanceState.getInt("currentQuestionIndex",currentQuestionIndex);
+            noOfCorrectAnswers = savedInstanceState.getInt("noOfCorrectAnswers",noOfCorrectAnswers);
+            noOfQuestionsToDisplay = savedInstanceState.getInt("noOfQuestionsToDisplay",noOfQuestionsToDisplay);
+            percentProgress = savedInstanceState.getInt("percentProgress",percentProgress);
+            shuffledQuestionsArrayList = savedInstanceState.getParcelableArrayList("shuffledQuestionsList", Question.class);
         }
 
         QuestionFragment fragment = QuestionFragment.newInstance(
@@ -113,18 +100,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             currentQuestionIndex = 0;
             noOfCorrectAnswers = 0;
             percentProgress = 0;
-            shuffledQuestionsArrayList = new QuestionBank().getQuestions(this);
-            if(userAddedQuestionsList != null)
-                shuffledQuestionsArrayList.addAll(userAddedQuestionsList);
-            Collections.shuffle(shuffledQuestionsArrayList);
-            ((AppLevelVars)getApplication()).setQuestions(shuffledQuestionsArrayList);
+            shuffledQuestionsArrayList = questionBank.getQuestions(this);
         }
         QuestionFragment fragment = QuestionFragment.newInstance(
                 shuffledQuestionsArrayList.get(currentQuestionIndex).getText(),
                 shuffledQuestionsArrayList.get(currentQuestionIndex).getColor());
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
-        ((AppLevelVars) getApplication()).setCurrentQuestionIndex(currentQuestionIndex);
-        ((AppLevelVars) getApplication()).setNoOfCorrectAnswers(noOfCorrectAnswers);
         progressBar.setProgress(percentProgress);
     }
 
@@ -174,12 +155,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void radioButtonClicked(int x) {
+    public void noOfQuestionsToBeDisplayedUpdated(int x) {
         noOfQuestionsToDisplay = x;
-        ((AppLevelVars)getApplication()).setNoOfQuestions(x);
+        if(x == -1)
+            noOfQuestionsToDisplay = shuffledQuestionsArrayList.size();
         percentProgress = (currentQuestionIndex * 100) /noOfQuestionsToDisplay;
         progressBar.setProgress(percentProgress);
-        Toast.makeText(this, getString(R.string.resetNo,x), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.resetNo,noOfQuestionsToDisplay), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -196,13 +178,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void addQuestion(String question, boolean answer) {
-        Question newQues = new Question(question,answer,R.color.Pink);
-        userAddedQuestionsList.add(newQues);
-        shuffledQuestionsArrayList.add(newQues);
-        ((AppLevelVars)getApplication()).setQuestions(shuffledQuestionsArrayList);
+        questionBank.addNewQuestion(question,answer);
         noOfQuestionsToDisplay = shuffledQuestionsArrayList.size();
-        ((AppLevelVars)getApplication()).setNoOfQuestions(shuffledQuestionsArrayList.size());
         Toast.makeText(this, getString(R.string.quesAdded,noOfQuestionsToDisplay), Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("currentQuestionIndex",currentQuestionIndex);
+        outState.putInt("noOfCorrectAnswers",noOfCorrectAnswers);
+        outState.putInt("noOfQuestionsToDisplay",noOfQuestionsToDisplay);
+        outState.putInt("percentProgress",percentProgress);
+        outState.putParcelableArrayList("shuffledQuestionsList",shuffledQuestionsArrayList);
+    }
 }

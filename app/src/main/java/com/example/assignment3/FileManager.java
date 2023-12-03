@@ -36,22 +36,6 @@ public class FileManager {
         }
     }
 
-//    void updateResultsInFile(Context context, ArrayList<Integer> updatedList) {
-//        FileOutputStream fos;
-//        try {
-//            fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//        for(int i=0;i<updatedList.size();i++) {
-//            try {
-//                fos.write((updatedList.get(i).toString() + '\n').getBytes());
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//    }
-
     ArrayList<Integer> getResultsFromFile(Context context) {
         ArrayList<Integer> list = new ArrayList<>(0);
         File file = new File(context.getFilesDir(),fileName);
@@ -77,25 +61,4 @@ public class FileManager {
         return list;
     }
 
-//    ArrayList<Integer> getResultsFromFile(Context context){
-//        FileInputStream fis;
-//        ArrayList<Integer> list = new ArrayList<>(0);
-//        try {
-//           // fis = new FileInputStream(fileName);
-//            fis = context.openFileInput(fileName);
-//            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
-//            try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
-//                String line = reader.readLine();
-//                while (line != null) {
-//                    list.add(Integer.parseInt(line));
-//                    line = reader.readLine();
-//                }
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return list;
-//    }
 }

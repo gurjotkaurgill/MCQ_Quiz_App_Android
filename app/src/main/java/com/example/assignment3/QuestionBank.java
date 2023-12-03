@@ -1,8 +1,11 @@
 package com.example.assignment3;
 
 import android.content.Context;
+import android.graphics.Color;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class QuestionBank {
     ArrayList<Integer> colors;
@@ -19,8 +22,19 @@ public class QuestionBank {
             colors.add(context.getColor(R.color.ForestGreen));
             colors.add(context.getColor(R.color.Sienna));
             colors.add(context.getColor(R.color.Purple));
+            colors.add(context.getColor(R.color.AliceBlue));
+            colors.add(context.getColor(R.color.Wheat));
+            colors.add(context.getColor(R.color.Magenta));
+            colors.add(context.getColor(R.color.LemonChiffon));
         }
         return colors;
+    }
+
+    public int getRandomColor(){
+        Random random = new Random();
+        int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        this.colors.add(color);
+        return color;
     }
     ArrayList<Question> questions;
     public ArrayList<Question> getQuestions(Context context) {
@@ -39,6 +53,12 @@ public class QuestionBank {
             questions.add(new Question(context.getResources().getString(R.string.ques9),false,shuffledColors.get(8)));
             questions.add(new Question(context.getResources().getString(R.string.ques10),true,shuffledColors.get(9)));
         }
+        Collections.shuffle(questions);
         return questions;
+    }
+
+    public void addNewQuestion(String question, boolean answer) {
+        Question q = new Question(question,answer,getRandomColor());
+        this.questions.add(q);
     }
 }

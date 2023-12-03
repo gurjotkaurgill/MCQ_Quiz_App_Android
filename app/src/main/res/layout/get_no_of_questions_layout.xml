@@ -34,6 +34,12 @@
             android:layout_height="wrap_content"
             android:text="@string/ten"
             android:textSize="@dimen/regularTextSize" />
+        <RadioButton
+            android:id="@+id/rbAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all"
+            android:textSize="@dimen/regularTextSize" />
     </RadioGroup>
 
     <Button
