@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ਕਵਿਜ਼ ਅਸਾਈਨਮੈਂਟ</string>
+    <string name="trueBtn">ਸੱਚ</string>
+    <string name="falseBtn">ਝੂਠ</string>
+    <string name="correct">ਸਹੀ</string>
+    <string name="incorrect">ਗਲਤ</string>
+    <string name="averageMenu">ਔਸਤ ਪ੍ਰਾਪਤ ਕਰੋ</string>
+    <string name="select_no_of_questions">ਸਵਾਲਾਂ ਦੀ ਗਿਣਤੀ ਚੁਣੋ</string>
+    <string name="resetResult">ਸੰਭਾਲਿਆ ਨਤੀਜਾ ਮਿਟਾਓ</string>
+    <string name="save">ਸੁਰੱਖਿਅਤ ਰੱਖੋ</string>
+    <string name="ignore">ਅਣਡਿੱਠ ਕਰੋ</string>
+    <string name="ok">ਠੀਕ ਹੈ</string>
+    <string name="average">ਔਸਤ: %2$d ਕੋਸ਼ਿਸ਼ਾਂ ਵਿੱਚ %1$d ਸਹੀ ਜਵਾਬ ਹਨ।</string>
+    <string name="correctAnsNo">ਤੁਹਾਡਾ ਸਕੋਰ ਹੈ: %2$d ਵਿੱਚੋਂ %1$d</string>
+    <string name="cancel">ਰੱਦ ਕਰੋ</string>
+    <string name="sureDelete">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਸਾਰੇ ਨਤੀਜਿਆਂ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+    <string name="resetNo">ਹੁਣ ਪ੍ਰਦਰਸ਼ਿਤ ਪ੍ਰਸ਼ਨਾਂ ਦੀ ਸੰਖਿਆ %1$d ਹੋਵੇਗੀ</string>
+    <string name="added">ਨਤੀਜਾ ਸਫਲਤਾਪੂਰਵਕ ਜੋੜਿਆ ਗਿਆ</string>
+    <string name="deleted">ਸਾਰੇ ਨਤੀਜੇ ਮਿਟਾ ਦਿੱਤੇ ਗਏ ਹਨ!</string>
+    <string name="addQues">ਕੋਈ ਸਵਾਲ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="enterQues">ਸਵਾਲ ਇੱਥੇ ਦਰਜ ਕਰੋ</string>
+    <string name="error">ਗਲਤੀ</string>
+    <string name="quesRequired">ਸਵਾਲ ਦੀ ਲੋੜ ਹੈ</string>
+    <string name="ansRequired">ਜਵਾਬ ਦੀ ਲੋੜ ਹੈ</string>
+    <string name="quesAdded">ਸਵਾਲ ਜੋੜਿਆ ਗਿਆ ਹੈ\nਹੁਣ ਪ੍ਰਦਰਸ਼ਿਤ ਪ੍ਰਸ਼ਨਾਂ ਦੀ ਗਿਣਤੀ %1$d ਹੋਵੇਗੀ</string>
+
+    <string name="ques1">ਕੈਨੇਡਾ ਦੁਨੀਆ ਦਾ ਸਭ ਤੋਂ ਵੱਡਾ ਦੇਸ਼ ਹੈ।</string>
+    <string name="ques2">ਸੂਰਜ ਇੱਕ ਤਾਰਾ ਹੈ।</string>
+    <string name="ques3">ਸਟੈਚੂ ਆਫ ਲਿਬਰਟੀ ਜਰਮਨੀ ਵੱਲੋਂ ਅਮਰੀਕਾ ਨੂੰ ਦਿੱਤਾ ਗਿਆ ਤੋਹਫਾ ਹੈ।</string>
+    <string name="ques4">ਸੌਰ ਮੰਡਲ ਵਿੱਚ 8 ਗ੍ਰਹਿ ਹਨ।</string>
+    <string name="ques5">ਦਿਲ ਇੱਕ ਮਾਸਪੇਸ਼ੀ ਹੈ।</string>
+    <string name="ques6">ਚਰਬੀ ਮਾਸਪੇਸ਼ੀ ਨਾਲੋਂ ਸੰਘਣੀ ਹੁੰਦੀ ਹੈ।</string>
+    <string name="ques7">ਸਾਹ ਲੈਣ ਦੌਰਾਨ ਅਸੀਂ ਕਾਰਬਨ ਡਾਈਆਕਸਾਈਡ ਅੰਦਰ ਲੈਂਦੇ ਹਾਂ ਅਤੇ ਆਕਸੀਜਨ ਨੂੰ ਬਾਹਰ ਕੱਢਦੇ ਹਾਂ।</string>
+    <string name="ques8">ਆਸਟ੍ਰੇਲੀਆ ਇੱਕ ਦੇਸ਼ ਅਤੇ ਇੱਕ ਮਹਾਂਦੀਪ ਦੋਵੇਂ ਹੈ।</string>
+    <string name="ques9">ਮਨੁੱਖ ਦੀਆਂ 4 ਇੰਦਰੀਆਂ ਹੁੰਦੀਆਂ ਹਨ।</string>
+    <string name="ques10">ਸਤਰੰਗੀ ਪੀਂਘ ਦੇ 7 ਰੰਗ ਹਨ।</string>
+</resources>

@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Quiz_Assignment</string>
+    <string name="trueBtn">True</string>
+    <string name="falseBtn">False</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
+    <string name="averageMenu">Get The Average</string>
+    <string name="select_no_of_questions">Select the number of Questions</string>
+    <string name="resetResult">Reset the saved Result</string>
+    <string name="save">Save</string>
+    <string name="ignore">Ignore</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="average">The average is %1$d correct answers in %2$d attempts.</string>
+    <string name="correctAnsNo">Your score is: %1$d out of %2$d</string>
+    <string name="sureDelete">Are you sure you want to delete all results?</string>
+    <string name="resetNo">Number of questions displayed now will be %1$d</string>
+    <string name="added">Result added successfully!</string>
+    <string name="deleted">All results deleted!</string>
+    <string name="addQues">Add a question</string>
+    <string name="enterQues">Enter the question here</string>
+    <string name="error">Error</string>
+    <string name="quesRequired">Question is required</string>
+    <string name="ansRequired">Answer is required</string>
+    <string name="quesAdded">Question added\nNo of questions displayed will be %1$d</string>
+
+    <string name="five" translatable="false">5</string>
+    <string name="eight" translatable="false">8</string>
+    <string name="ten" translatable="false">10</string>
+
+    <string name="ques1">Canada is the largest country in the world.</string>
+    <string name="ques2">The sun is a star.</string>
+    <string name="ques3">The Statue of Liberty is a gift to the USA from Germany.</string>
+    <string name="ques4">There are 8 planets in the solar system.</string>
+    <string name="ques5">The heart is a muscle.</string>
+    <string name="ques6">Fat is denser than muscle.</string>
+    <string name="ques7">We breathe in carbon dioxide and exhale oxygen.</string>
+    <string name="ques8">Australia is both a country and a continent.</string>
+    <string name="ques9">Humans have 4 senses.</string>
+    <string name="ques10">Rainbow has 7 colors.</string>
+</resources>

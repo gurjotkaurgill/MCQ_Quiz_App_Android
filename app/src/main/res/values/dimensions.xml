@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="regularTextSize">20sp</dimen>
+    <dimen name="fillDimen">0dp</dimen>
+    <dimen name="smallPadding">15dp</dimen>
+    <dimen name="minHeight">48dp</dimen>
+    <dimen name="minWidth">480dp</dimen>
+</resources>
