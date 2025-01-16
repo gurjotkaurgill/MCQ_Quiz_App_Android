@@ -1,6 +1,6 @@
-Project Description: An Android application resembling a true/false quiz, implemented using Java in Android Studio. The application featured randomized question colors, customizable question count per attempt, progress tracking, optional result saving in a file, average score calculation, reset of the average score, addition of new questions, and support for Punjabi language.
+**Project Description:** An Android application resembling a true/false quiz, implemented using Java in Android Studio. The application featured randomized question colors, customizable question count per attempt, progress tracking, optional result saving in a file, average score calculation, reset of the average score, addition of new questions, and support for Punjabi language.
 
-Action Steps:
+**Action Steps:**
 •	Designed and implemented a Question class incorporating Boolean answer and integer colour representation.
 •	Created a robust collection structure for managing instances of the Question class.
 •	Utilized frame layout within the main activity to seamlessly display questions and interactive buttons.
